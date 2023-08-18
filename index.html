@@ -1,37 +1,68 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AniDown</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AniDown</title>
-</head>
-
-<body>
-  <div id="app" class="min-h-screen">
-    <div>
-      <div class="bg-gradient-to-b from-[#C79A9A] to-slate-300 h-[635px]">
-        <h1 class="text-3xl font-bold bg-red-400  underline">
-          Download your favorite Anime
-        </h1>
-        <form action="">
-          <input type="text" placeholder="Anime name" id="anime-name" />
-          <input type="number" placeholder="Episode num" name="" id="ep-no" />
-          <select name="" id="lang">
-            <option value="Sub">Sub</option>
-            <option value="Dub" selected>Dub</option>
-
-          </select>
-          <input type="button" value="Search">
-        </form>
-        <P>To get accurate results please follow the <a href="instruction.html" target="_blank"
-            rel="noopener noreferrer">instruction</a></P>
+  <body class="bg-[#121212]">
+    <div id="app" class="relative">
+      <div
+        class="bg-[url(/img/bgimg.jpg)] flex items-center justify-center bg-center bg-opacity-80 h-[90vh] rounded-[0%0%75%75%/0%0%40%40%]"
+      >
+        <div><div class="flex flex-col items-center mb-8">
+          <h1 class="text-white font-extrabold text-3xl">ANIdown</h1>
+          <h1 class="text-white font-extrabold">
+            Download your favorite Anime
+          </h1></div>
+          <form class=" " action="submit">
+            <input
+              type="text"
+              class="block placeholder:text-center h-14 w-[28rem] rounded-2xl m-1 border-amber-600 border-4"
+              placeholder="Anime name"
+              id="anime-name"
+            />
+            <div class="grid grid-cols-3 h-14 w-[28rem]">
+              <input
+                type="number"
+                class="placeholder:text-center border-amber-600 border-4 col-span-2 m-1 h-14 rounded-2xl"
+                placeholder="Episode num"
+                name=""
+                id="ep-no"
+              />
+              <select
+                class="m-1 border-amber-600 border-4 h-14 rounded-2xl"
+                name=""
+                id="lang"
+              >
+                <option value="Sub">Sub</option>
+                <option value="Dub" selected>Dub</option>
+              </select>
+            </div>
+            <input
+              class=" block font-medium font-sans text-white text rounded-md p-2 my-4 mx-auto bg-amber-500"
+              type="button"
+              value="Search"
+            />
+          </form>
+          <p class="text-white font-mono">
+            To get accurate results please follow the
+            <a
+              class="bg-amber-500 justify-center mx-auto"
+              href="instruction.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              >instruction</a
+            >
+          </p>
+        </div>
       </div>
-    </div>
-    <div></div>
-  </div>
-  </div>
-  <script type="module" src="/main.js"></script>
-</body>
 
+      <div class="bg-amber-600 h-8 w-full fixed bottom-0 "></div>
+    </div>
+
+    <!-- <script  type="module" src="src/app.js"></script> -->
+    <script type="module" src="/main.js"></script>
+  </body>
 </html>

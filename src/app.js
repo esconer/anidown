@@ -5,7 +5,7 @@ let episodeNum = 426;
 let isDub = true;
 let contentType = "TV";
 let downLink;
-
+console.log(animeName);
 //copied from stack overflow changing to pascal Case
 // let casedName = animeName;
 let casedName = (aName) =>
