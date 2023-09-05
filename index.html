@@ -11,40 +11,48 @@
       <div
         class="bg-[url(/img/bgimg.jpg)] flex items-center justify-center bg-center bg-opacity-80 h-[90vh] rounded-[0%0%75%75%/0%0%40%40%]"
       >
-        <div><div class="flex flex-col items-center mb-8">
-          <h1 class="text-white font-extrabold text-3xl">ANIdown</h1>
-          <h1 class="text-white font-extrabold">
-            Download your favorite Anime
-          </h1></div>
-          <form class=" " action="submit">
+        <div>
+          <div class="flex flex-col items-center mb-8">
+            <h1 class="text-white font-extrabold text-3xl">ANIdown</h1>
+            <h1 class="text-white font-extrabold">
+              Download your favorite Anime
+            </h1>
+          </div>
+          <form class=" " action="http://127.0.0.1:3000/search" method="post">
             <input
+              name="ani-name"
               type="text"
               class="block placeholder:text-center h-14 w-[28rem] rounded-2xl m-1 border-amber-600 border-4"
               placeholder="Anime name"
               id="anime-name"
+              required
             />
             <div class="grid grid-cols-3 h-14 w-[28rem]">
               <input
+                name="ep-no"
                 type="number"
                 class="placeholder:text-center border-amber-600 border-4 col-span-2 m-1 h-14 rounded-2xl"
                 placeholder="Episode num"
                 name=""
                 id="ep-no"
+                required
               />
               <select
+                name="lang"
                 class="m-1 border-amber-600 border-4 h-14 rounded-2xl"
                 name=""
                 id="lang"
+                required
               >
                 <option value="Sub">Sub</option>
                 <option value="Dub" selected>Dub</option>
               </select>
             </div>
-            <input
-              class=" block font-medium font-sans text-white text rounded-md p-2 my-4 mx-auto bg-amber-500"
-              type="button"
-              value="Search"
-            />
+            <button
+              class="block font-medium font-sans text-white text rounded-md p-1 px-4 my-4 mx-auto bg-amber-500"
+            >
+              Search
+            </button>
           </form>
           <p class="text-white font-mono">
             To get accurate results please follow the
@@ -59,7 +67,7 @@
         </div>
       </div>
 
-      <div class="bg-amber-600 h-8 w-full fixed bottom-0 "></div>
+      <div class="bg-amber-600 h-8 w-full fixed bottom-0"></div>
     </div>
 
     <!-- <script  type="module" src="src/app.js"></script> -->

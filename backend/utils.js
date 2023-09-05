@@ -1,21 +1,31 @@
 import puppeteer from "puppeteer";
+
 //selecting
-let animeName = "one piece";
-let episodeNum = 426;
-let isDub = true;
-let contentType = "TV";
+let anime = {
+  animeName: "one piece",
+  episodeNum: 426,
+  isDub: true,
+  contentType: "TV",
+};
+// let animeName = "one piece";
+// let episodeNum = 426;
+// let isDub = true;
+// let contentType = "TV";
 let downLink;
-console.log(animeName);
+
+
+
+console.log(anime.animeName);
 //copied from stack overflow changing to pascal Case
 // let casedName = animeName;
 let casedName = (aName) =>
   aName.replace(/\w+/g, function (w) {
     return w[0].toUpperCase() + w.slice(1).toLowerCase();
   });
-if (contentType === "movie") {
-  casedName(contentType);
+if (anime.contentType === "movie") {
+  casedName(anime.contentType);
 } else {
-  contentType.toUpperCase();
+  anime.contentType.toUpperCase();
 }
 // casedName = casedName.replace(/\w+/g, function (w) {
 //   return w[0].toUpperCase() + w.slice(1).toLowerCase();
@@ -26,7 +36,7 @@ if (contentType === "movie") {
 (async () => {
   // Launch the browser
   const browser = await puppeteer.launch({
-    headless: "new",
+    headless: false,
     defaultViewport: false,
     userDataDir: "./tmp",
   });
@@ -47,10 +57,10 @@ if (contentType === "movie") {
 
   //alt discover precise search (mod. in url)
 
-  let advSearch = `https://yugenanime.tv/discover/?q=${animeName.replaceAll(
+  let advSearch = `https://yugenanime.tv/discover/?q=${anime.animeName.replaceAll(
     " ",
     "+"
-  )}&type=${contentType}`;
+  )}&type=${anime.contentType}`;
   await page.goto(advSearch);
   //image selector
   await page.waitForSelector(".cards-grid");
@@ -93,9 +103,9 @@ if (contentType === "movie") {
 
   let splited = searchResult[0].split("/");
 
-  let playingLink = `https://yugenanime.tv/watch/${splited[4]}/${splited[5]}/${episodeNum}/`;
+  let playingLink = `https://yugenanime.tv/watch/${splited[4]}/${splited[5]}/${anime.episodeNum}/`;
   //in case of dub
-  let dubPlayingLink = `https://yugenanime.tv/watch/${splited[4]}/${splited[5]}-dub/${episodeNum}/`;
+  let dubPlayingLink = `https://yugenanime.tv/watch/${splited[4]}/${splited[5]}-dub/${anime.episodeNum}/`;
   // movie
   let moviePlayingLink = `https://yugenanime.tv/watch/${splited[4]}/${splited[5]}/1/`;
   let movieDubPlayingLink = `https://yugenanime.tv/watch/${splited[4]}/${splited[5]}-dub/1/`;
@@ -109,7 +119,7 @@ if (contentType === "movie") {
   // await page.goto(downLink);
 
   // choosing dub or sub
-  if (isDub && contentType === "TV") {
+  if (anime.isDub && anime.contentType === "TV") {
     //jump to episode no
     await page.goto(dubPlayingLink);
     //clicking the download link
@@ -117,7 +127,7 @@ if (contentType === "movie") {
       () => document.getElementsByName("player-download")[0].href
     );
     await page.goto(downLink);
-  } else if (isDub && contentType === "Movie") {
+  } else if (anime.isDub && anime.contentType === "Movie") {
     //jump to episode no
     await page.goto(movieDubPlayingLink);
     //clicking the download link
@@ -125,7 +135,7 @@ if (contentType === "movie") {
       () => document.getElementsByName("player-download")[0].href
     );
     await page.goto(downLink);
-  } else if (!isDub && contentType === "Movie") {
+  } else if (!anime.isDub && anime.contentType === "Movie") {
     //jump to episode no
     await page.goto(moviePlayingLink);
     //clicking the download link
