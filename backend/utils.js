@@ -1,9 +1,10 @@
-import puppeteer from "puppeteer";
+// import puppeteer from "puppeteer";
+const puppeteer = require('puppeteer');
 
 //selecting
 let anime = {
-  animeName: "one piece",
-  episodeNum: 426,
+  animeName: "black clover",
+  episodeNum: 3,
   isDub: true,
   contentType: "TV",
 };
@@ -12,8 +13,6 @@ let anime = {
 // let isDub = true;
 // let contentType = "TV";
 let downLink;
-
-
 
 console.log(anime.animeName);
 //copied from stack overflow changing to pascal Case
@@ -56,11 +55,14 @@ if (anime.contentType === "movie") {
   // ***********************************up
 
   //alt discover precise search (mod. in url)
+  
 
   let advSearch = `https://yugenanime.tv/discover/?q=${anime.animeName.replaceAll(
     " ",
     "+"
   )}&type=${anime.contentType}`;
+  
+
   await page.goto(advSearch);
   //image selector
   await page.waitForSelector(".cards-grid");
