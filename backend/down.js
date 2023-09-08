@@ -66,7 +66,7 @@ async function anidown(aniName, epNo, lang, type = "TV") {
     const searchResult = await page.$$eval(".cards-grid a", (anime) => {
       return anime.map((el) => el.href);
     });
-    console.log(searchResult);
+    // console.log(searchResult);
 
     // ***********************************down
     // for ( let anime of searchResult){
@@ -150,8 +150,8 @@ async function anidown(aniName, epNo, lang, type = "TV") {
       );
       await page.goto(downLink);
     }
-    console.log(downLink);
-    link = downLink;
+    // console.log(downLink);
+    // link = downLink;
    
     await browser.close();
     return downLink;

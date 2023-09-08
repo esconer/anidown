@@ -1,5 +1,5 @@
 const express = require("express");
-const anidown= require("./down.js");
+const anidown = require("./down.js");
 // const link= require("./down.js");
 // import express from "express";
 // import "./down.js";
@@ -7,7 +7,7 @@ const anidown= require("./down.js");
 const app = express();
 const port = 3000;
 // app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   console.log(req.query);
@@ -15,14 +15,16 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
- app.get("/search", async (req, res) => {
+app.get("/search", async (req, res) => {
   console.log(req.query);
-  console.log("---------------");
-   const {ani_name,ep_no,lang} = req.query
-  console.log("---------------");
   
- await res.send(anidown(ani_name,ep_no,lang));
-})
+  const { ani_name, ep_no, lang } = req.query;
+
+ const link =  await  anidown(ani_name, ep_no, lang);
+
+  link
+  console.log("---------------");
+});
 app.post("/search", (req, res) => {
   console.log(req.query);
   // console.log(req.body);
