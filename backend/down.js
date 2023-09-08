@@ -26,7 +26,7 @@ async function anidown(aniName, epNo, lang, type = "TV") {
 
   // for toggle class sidepanel--toggle
 
-  (async () => {
+  
     // Launch the browser
     const browser = await puppeteer.launch({
       headless: false,
@@ -150,12 +150,12 @@ async function anidown(aniName, epNo, lang, type = "TV") {
       );
       await page.goto(downLink);
     }
-    // console.log(downLink);
+    console.log(`${downLink}   from down.js`);
     // link = downLink;
-   
+
     await browser.close();
     return downLink;
-  })();
+
 }
 
 module.exports = anidown;
