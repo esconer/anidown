@@ -7,7 +7,7 @@
   </head>
 
   <body class="bg-[#121212]">
-    <div id="app" class="relative">
+    <div id="app" class="">
       <div
         class="bg-[url(/img/bgimg.jpg)] flex items-center justify-center bg-center bg-opacity-80 h-[90vh] rounded-[0%0%75%75%/0%0%40%40%]"
       >
@@ -18,7 +18,7 @@
               Download your favorite Anime
             </h1>
           </div>
-          <form class=" " action="http://127.0.0.1:3000/search" method="get">
+          <form >
             <input
               name="ani_name"
               type="text"
@@ -49,6 +49,7 @@
               </select>
             </div>
             <button
+              id="search"
               class="block font-medium font-sans text-white text rounded-md p-1 px-4 my-4 mx-auto bg-amber-500"
             >
               Search
@@ -67,10 +68,20 @@
         </div>
       </div>
 
-      <div class="bg-amber-600 h-8 w-full fixed bottom-0"></div>
+      <section id="result-section" class="flex justify-center mt-4 hidden">
+        <div 
+          class="border-amber-600 border-2 rounded text-center text-amber-500 text-lg bg-zinc-800 p-4 m-4 mb-12 w-2/3"
+        >
+        <p class=" text-white text-base">Click the following link:</p>
+          
+        </div>
+      </section>
+
+      <div class="bg-amber-600 h-8 w-full  fixed bottom-0"></div>
     </div>
 
-    <!-- <script  type="module" src="src/app.js"></script> -->
+  
     <script type="module" src="/main.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>

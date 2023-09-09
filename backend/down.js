@@ -29,7 +29,7 @@ async function anidown(aniName, epNo, lang, type = "TV") {
   
     // Launch the browser
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: 'new',
       defaultViewport: false,
       userDataDir: "./tmp",
     });
