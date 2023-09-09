@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AniDown</title>
+  </head>
+
+  <body class="bg-[#121212]">
+    <div id="app" class="">
+      <div
+        class="bg-[url(/img/bgimg.jpg)] flex items-center justify-center bg-center bg-opacity-80 h-[90vh] rounded-[0%0%75%75%/0%0%40%40%]"
+      >
+        <div>
+          <div class="flex flex-col items-center mb-8">
+            <h1 class="text-white font-extrabold text-3xl">ANIdown</h1>
+            <h1 class="text-white font-extrabold">
+              Download your favorite Anime
+            </h1>
+          </div>
+          <form >
+            <input
+              name="ani_name"
+              type="text"
+              class="block placeholder:text-center h-14 w-[28rem] rounded-2xl m-1 border-amber-600 border-4"
+              placeholder="Anime name"
+              id="anime-name"
+              required
+            />
+            <div class="grid grid-cols-3 h-14 w-[28rem]">
+              <input
+                name="ep_no"
+                type="number"
+                class="placeholder:text-center border-amber-600 border-4 col-span-2 m-1 h-14 rounded-2xl"
+                placeholder="Episode num"
+                name=""
+                id="ep-no"
+                required
+              />
+              <select
+                name="lang"
+                class="m-1 border-amber-600 border-4 h-14 rounded-2xl"
+                name=""
+                id="lang"
+                required
+              >
+                <option value="Sub">Sub</option>
+                <option value="Dub" selected>Dub</option>
+              </select>
+            </div>
+            <button
+              id="search"
+              class="block font-medium font-sans text-white text rounded-md p-1 px-4 my-4 mx-auto bg-amber-500"
+            >
+              Search
+            </button>
+          </form>
+          <p class="text-white font-mono">
+            To get accurate results please follow the
+            <a
+              class="bg-amber-500 justify-center mx-auto"
+              href="instruction.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              >instruction</a
+            >
+          </p>
+        </div>
+      </div>
+
+      <section id="result-section" class="flex justify-center mt-4 hidden">
+        <div 
+          class="border-amber-600 border-2 rounded text-center text-amber-500 text-lg bg-zinc-800 p-4 m-4 mb-12 w-2/3"
+        >
+        <p class=" text-white text-base">Click the following link:</p>
+          
+        </div>
+      </section>
+
+      <div class="bg-amber-600 h-8 w-full  fixed bottom-0"></div>
+    </div>
+
+  
+    <script type="module" src="/main.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
