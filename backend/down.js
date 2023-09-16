@@ -100,7 +100,7 @@ async function anidown(aniName, epNo, lang, type = "TV") {
     //making the url
 
     let splited = searchResult[0].split("/");
-
+ //in case of sub
     let playingLink = `https://yugenanime.tv/watch/${splited[4]}/${splited[5]}/${epNo}/`;
     //in case of dub
     let dubPlayingLink = `https://yugenanime.tv/watch/${splited[4]}/${splited[5]}-dub/${epNo}/`;
