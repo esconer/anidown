@@ -1,10 +1,7 @@
 const express = require("express");
 const anidown = require("./down.js");
 const cors = require('cors');
-// const link= require("./down.js");
-// import express from "express";
-// import "./down.js";
-// import { Express } from 'express';
+
 const app = express();
 const port = 3000;
 app.use(cors());
