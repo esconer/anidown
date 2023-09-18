@@ -1,6 +1,13 @@
 const puppeteer = require("puppeteer");
 
 async function anidown(aniName, epNo, lang, type = "TV") {
+  // Launch the browser
+  const browser = await puppeteer.launch({
+    headless: false,
+    defaultViewport: false,
+
+    userDataDir: "./tmp",
+  });
   try {
     let downLink;
 
@@ -17,14 +24,6 @@ async function anidown(aniName, epNo, lang, type = "TV") {
       type.toUpperCase();
     }
 
-    // Launch the browser
-    const browser = await puppeteer.launch({
-      headless: "new",
-      defaultViewport: false,
-      ignoreDefaultArgs: ['--disable-extensions'],
-      userDataDir: "./tmp",
-    });
-
     // Create a page
     const page = await browser.newPage();
     page.setDefaultNavigationTimeout(100000);
@@ -37,7 +36,7 @@ async function anidown(aniName, epNo, lang, type = "TV") {
     // await page.goto(basicSearch);
     await page.goto(advSearch);
     //image selector
-    await page.waitForSelector(".cards-grid");
+    await page.waitForNetworkIdle(".cards-grid");
 
     const searchResult = await page.$$eval(".cards-grid a", (anime) => {
       return anime.map((el) => el.href);
@@ -100,13 +99,13 @@ async function anidown(aniName, epNo, lang, type = "TV") {
     console.log(`${downLink}   from down.js`);
     // link = downLink;
 
-    await browser.close();
     return downLink;
   } catch (e) {
     // downLink = null;
-    console.log("please read the instruction and try again", e);
-    
+    // console.log("please read the instruction and try again", e);
+    // await browser.close();
   }
+  await browser.close();
 }
 
 module.exports = anidown;
