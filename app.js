@@ -1,6 +1,7 @@
 const searchBtn = document.querySelector("#search");
 const resultSection = document.querySelector("#result-section");
 const waitSection = document.querySelector("#wait");
+const errorSection= document.querySelector('#no-res')
 
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
@@ -15,6 +16,8 @@ searchBtn.addEventListener("click", function (event) {
     ep_no: Number(epNo),
     lang: lang,
   };
+  waitSection.classList.add("hidden");
+  errorSection.classList.add("hidden");
   waitSection.classList.remove("hidden");
   fetch("http://127.0.0.1:3000/search", {
     method: "POST",
@@ -27,9 +30,11 @@ searchBtn.addEventListener("click", function (event) {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
+      // console.log(response,'from res')
       return response.text(); // Parse the response as plain text
     })
     .then((text) => {
+     
       waitSection.classList.add("hidden");
       resultSection.classList.remove("hidden");
       const ulElement = document.createElement("ul");
@@ -39,5 +44,8 @@ searchBtn.addEventListener("click", function (event) {
   target="_blank"> ${aniDetails.ani_name} episode ${aniDetails.ep_no} ${aniDetails.lang}</a>`;
       ulElement.appendChild(liElement);
       resultSection.children[0].appendChild(ulElement);
-    });
+    }).catch((e)=>{
+      waitSection.classList.add("hidden");
+      errorSection.classList.remove("hidden");
+    })
 });
