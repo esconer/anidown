@@ -35,7 +35,7 @@ searchBtn.addEventListener("click", function (event) {
     })
     .then((text) => {
      
-      waitSection.classList.add("hidden");
+      waitSection.classList.add("hidden");resultSection.classList.add("flex")
       resultSection.classList.remove("hidden");
       const ulElement = document.createElement("ul");
       const liElement = document.createElement("li");
