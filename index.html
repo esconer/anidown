@@ -4,35 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AniDown</title>
-    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
   </head>
 
   <body class="bg-[#121212]">
-    <div id="app" class="">
+    <div id="app" class="sm:relative">
       <div
-        class="bg-[url(/img/bgimg.jpg)] flex items-center justify-center bg-center bg-opacity-80 h-[90vh] rounded-[0%0%75%75%/0%0%40%40%]"
+        class="bg-[url(/img/bgimg.jpg)] flex items-center justify-center flex-wrap bg-center bg-opacity-80 h-[90vh] rounded-[0%0%75%75%/0%0%40%40%] w-screen sm:absolute"
       >
-        <div>
+        <div class="max-w-[30rem] mx-2 sm:absolute">
           <div class="flex flex-col items-center mb-8">
             <h1 class="text-white font-extrabold text-3xl">ANIdown</h1>
             <h1 class="text-white font-extrabold">
               Download your favorite Anime
             </h1>
           </div>
-          <form >
-            <input
-              name="ani_name"
-              type="text"
-              class="block placeholder:text-center h-14 w-[28rem] rounded-2xl m-1 border-amber-600 border-4"
-              placeholder="Anime name"
-              id="anime-name"
-              required
-            />
-            <div class="grid grid-cols-3 h-14 w-[28rem]">
+          <form class="">
+            <div class="grid grid-cols-3 gap-2">
+              <input
+                name="ani_name"
+                type="text"
+                class="block placeholder:text-center h-14 rounded-2xl border-amber-600 border-4 col-span-3"
+                placeholder="Anime name"
+                id="anime-name"
+                required
+              />
+
               <input
                 name="ep_no"
                 type="number"
-                class="placeholder:text-center border-amber-600 border-4 col-span-2 m-1 h-14 rounded-2xl"
+                class="placeholder:text-center border-amber-600 border-4 col-span-2 h-14 rounded-2xl"
                 placeholder="Episode num"
                 name=""
                 id="ep-no"
@@ -40,7 +41,7 @@
               />
               <select
                 name="lang"
-                class="m-1 border-amber-600 border-4 h-14 rounded-2xl"
+                class="border-amber-600 border-4 h-14 rounded-2xl"
                 name=""
                 id="lang"
                 required
@@ -68,21 +69,27 @@
           </p>
         </div>
       </div>
-<section id="wait" class=" m-4 hidden"><p class="text-white text-center ">Hang on..... we are preparing your link</p></section>
-<section id="no-res" class=" m-4 hidden mb-8"><p class="text-red-500 text-center ">Please check the instruction and try again by refreshing the page</p></section>
-      <section id="result-section" class="flex justify-center mt-4 hidden">
-        <div 
+      <section id="wait" class="m-4 hidden">
+        <p class="text-white text-center">
+          Hang on..... we are preparing your link
+        </p>
+      </section>
+      <section id="no-res" class="m-4 hidden mb-8">
+        <p class="text-red-500 text-center">
+          Please check the instruction and try again by refreshing the page
+        </p>
+      </section>
+      <section id="result-section" class="justify-center mt-4 hidden">
+        <div
           class="border-amber-600 border-2 rounded text-center text-amber-500 text-lg bg-zinc-800 p-4 m-4 mb-12 w-2/3"
         >
-        <p class=" text-white text-base">Click the following link:</p>
-          
+          <p class="text-white text-base">Click the following link:</p>
         </div>
       </section>
 
-      <div class="bg-amber-600 h-8 w-full  fixed bottom-0"></div>
+      <div class="bg-amber-600 h-8 w-full fixed bottom-0"></div>
     </div>
 
-  
     <script type="module" src="/main.js"></script>
     <script src="app.js"></script>
   </body>
