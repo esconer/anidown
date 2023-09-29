@@ -13,6 +13,7 @@ tmp
 dist-ssr
 *.local
 test
+.env
 
 # Editor directories and files
 .vscode/*
