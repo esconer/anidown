@@ -1,13 +1,5 @@
 const puppeteer = require("puppeteer");
-const {join} = require('path');
 
-/**
- * @type {import("puppeteer").Configuration}
- */
-module.exports = {
-  // Changes the cache location for Puppeteer.
-  cacheDirectory: join(__dirname, '.cache', 'puppeteer'),
-};
 async function anidown(aniName, epNo, lang, type = "TV") {
   try {
     let downLink;
