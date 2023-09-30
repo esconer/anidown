@@ -16,16 +16,16 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.get("/search", async (req, res) => {
-  console.log(req.query);
+// app.get("/search", async (req, res) => {
+//   console.log(req.query);
 
-  const { ani_name, ep_no, lang } = req.query;
+//   const { ani_name, ep_no, lang } = req.query;
 
-  const link = await anidown(ani_name, ep_no, lang);
+//   const link = await anidown(ani_name, ep_no, lang);
 
-  console.log(link);
-  res.send(`<a href="${link}" target="_blank">link</a>`);
-});
+//   console.log(link);
+//   res.send(`<a href="${link}" target="_blank">link</a>`);
+// });
 app.post("/search", async (req, res) => {
   // console.log(req.query);
   // console.log(req.json);

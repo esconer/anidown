@@ -29,7 +29,7 @@ async function anidown(aniName, epNo, lang, type = "TV") {
       headless: "new",
       defaultViewport: false,
       ignoreDefaultArgs: ['--disable-extensions'],
-      userDataDir: "./tmp",
+      // userDataDir: "./tmp",
     });
 
     // Create a page
