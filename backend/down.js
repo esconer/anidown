@@ -1,5 +1,7 @@
 const puppeteer = require("puppeteer");
+
 require('dotenv').config()
+
 async function anidown(aniName, epNo, lang, type = "TV") {
   try {
     let downLink;
@@ -28,7 +30,7 @@ async function anidown(aniName, epNo, lang, type = "TV") {
 
       headless: "new",
       defaultViewport: false,
-      ignoreDefaultArgs: ['--disable-extensions'],
+      // ignoreDefaultArgs: ['--disable-extensions'],
       // userDataDir: "./tmp",
     });
 
