@@ -1,7 +1,7 @@
 const express = require("express");
 const anidown = require("./down.js");
 const cors = require("cors");
-require('dotenv').config()
+
 
 
 const app = express();
