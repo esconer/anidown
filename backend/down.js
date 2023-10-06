@@ -20,19 +20,7 @@ async function anidown(aniName, epNo, lang, type = "TV") {
     }
 
     // Launch the browser
-    const browser = await puppeteer.launch({
-      args:["--disable-setuid-sandbox","--no-sandbox","--single-process","--no-zygote"
-
-      ],
-      executablePath:  process.env.NODE_ENV ==='production'? process.env.PUPPETEER_EXECUTABLE_PATH
-      :puppeteer.executablePath(),
-
-
-      headless: "new",
-      defaultViewport: false,
-      // ignoreDefaultArgs: ['--disable-extensions'],
-      // userDataDir: "./tmp",
-    });
+    const browser = await puppeteer.launch();
 
     // Create a page
     const page = await browser.newPage();
@@ -119,4 +107,3 @@ async function anidown(aniName, epNo, lang, type = "TV") {
 }
 
 module.exports = anidown;
-// module.exports = link;
