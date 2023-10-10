@@ -21,7 +21,7 @@ async function anidown(aniName, epNo, lang, type = "TV") {
 
     // Launch the browser
     const browser = await puppeteer.launch({
-      headless: "new",
+    
       args: [
         "--disable-setuid-sandbox",
         "--no-sandbox",
