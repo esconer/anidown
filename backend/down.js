@@ -1,12 +1,12 @@
 const puppeteer = require("puppeteer");
 
-require('dotenv').config()
+require("dotenv").config();
 
 async function anidown(aniName, epNo, lang, type = "TV") {
   try {
     let downLink;
 
-    console.log(aniName);
+    console.log(aniName,epNo, lang, type);
     //copied from stack overflow changing to pascal Case
     // let casedName = animeName;
     let casedName = (aName) =>
@@ -21,6 +21,7 @@ async function anidown(aniName, epNo, lang, type = "TV") {
 
     // Launch the browser
     const browser = await puppeteer.launch({
+      headless: "new",
       args: [
         "--disable-setuid-sandbox",
         "--no-sandbox",
@@ -113,7 +114,6 @@ async function anidown(aniName, epNo, lang, type = "TV") {
   } catch (e) {
     // downLink = null;
     console.log("please read the instruction and try again", e);
-    
   }
 }
 
