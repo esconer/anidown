@@ -28,7 +28,7 @@ searchBtn.addEventListener("click", function (event) {
   waitSection.classList.add("hidden");
   errorSection.classList.add("hidden");
   waitSection.classList.remove("hidden");
-  fetch("https://anidown-backend.onrender/search", {
+  fetch("https://anidown-backend.onrender.com/search", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
