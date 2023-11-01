@@ -19,7 +19,7 @@ searchBtn.addEventListener("click", function (event) {
   waitSection.classList.add("hidden");
   errorSection.classList.add("hidden");
   waitSection.classList.remove("hidden");
-  fetch("http://127.0.0.1:3000/search", {
+  fetch("https://anidown-backend.onrender.com/search", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -35,7 +35,7 @@ searchBtn.addEventListener("click", function (event) {
     })
     .then((text) => {
      
-      waitSection.classList.add("hidden");
+      waitSection.classList.add("hidden");resultSection.classList.add("flex")
       resultSection.classList.remove("hidden");
       const ulElement = document.createElement("ul");
       const liElement = document.createElement("li");

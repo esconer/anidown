@@ -1,5 +1,7 @@
 const puppeteer = require("puppeteer");
 
+require("dotenv").config();
+
 async function anidown(aniName, epNo, lang, type = "TV") {
   // Launch the browser
   const browser = await puppeteer.launch({
@@ -11,7 +13,7 @@ async function anidown(aniName, epNo, lang, type = "TV") {
   try {
     let downLink;
 
-    console.log(aniName);
+    console.log(aniName, epNo, lang, type);
     //copied from stack overflow changing to pascal Case
     // let casedName = animeName;
     let casedName = (aName) =>
@@ -23,6 +25,14 @@ async function anidown(aniName, epNo, lang, type = "TV") {
     } else {
       type.toUpperCase();
     }
+
+    // Launch the browser
+    const browser = await puppeteer.launch({
+      headless: "new",
+      defaultViewport: false,
+      ignoreDefaultArgs: ["--disable-extensions"],
+      userDataDir: "./tmp",
+    });
 
     // Create a page
     const page = await browser.newPage();
@@ -102,11 +112,9 @@ async function anidown(aniName, epNo, lang, type = "TV") {
     return downLink;
   } catch (e) {
     // downLink = null;
-    // console.log("please read the instruction and try again", e);
-    // await browser.close();
+    console.log("please read the instruction and try again", e);
   }
   await browser.close();
 }
 
 module.exports = anidown;
-// module.exports = link;
