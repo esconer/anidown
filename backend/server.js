@@ -20,7 +20,7 @@ app.post("/search", async (req, res) => {
   if (link) {
     res.send(link);
   } else {
-    res.status(404).send('Resource not found');
+    res.status(404).send("Resource not found");
   }
 });
 

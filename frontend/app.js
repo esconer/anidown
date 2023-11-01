@@ -1,10 +1,19 @@
 const searchBtn = document.querySelector("#search");
 const resultSection = document.querySelector("#result-section");
 const waitSection = document.querySelector("#wait");
-const errorSection= document.querySelector('#no-res')
+const errorSection = document.querySelector("#no-res");
+// modal
+const modalOpen = document.querySelector("#modal-open");
+const modal = document.querySelector(".modal");
+const modalClose = document.querySelector(".modal-close");
+modalOpen.addEventListener("click", () => {
+  modal.showModal();
+});
+modalClose.addEventListener("click", () => modal.close());
 
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
+
   const aniName = document.querySelector('input[name="ani_name"]').value;
 
   const epNo = document.querySelector('input[name="ep_no"]').value;
@@ -19,7 +28,7 @@ searchBtn.addEventListener("click", function (event) {
   waitSection.classList.add("hidden");
   errorSection.classList.add("hidden");
   waitSection.classList.remove("hidden");
-  fetch("https://anidown-backend.onrender.com/search", {
+  fetch("http://127.0.0.1:3000/search", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -34,8 +43,8 @@ searchBtn.addEventListener("click", function (event) {
       return response.text(); // Parse the response as plain text
     })
     .then((text) => {
-     
-      waitSection.classList.add("hidden");resultSection.classList.add("flex")
+      waitSection.classList.add("hidden");
+      resultSection.classList.add("flex");
       resultSection.classList.remove("hidden");
       const ulElement = document.createElement("ul");
       const liElement = document.createElement("li");
@@ -44,8 +53,9 @@ searchBtn.addEventListener("click", function (event) {
   target="_blank"> ${aniDetails.ani_name} episode ${aniDetails.ep_no} ${aniDetails.lang}</a>`;
       ulElement.appendChild(liElement);
       resultSection.children[0].appendChild(ulElement);
-    }).catch((e)=>{
+    })
+    .catch((e) => {
       waitSection.classList.add("hidden");
       errorSection.classList.remove("hidden");
-    })
+    });
 });

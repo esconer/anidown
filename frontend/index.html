@@ -7,12 +7,12 @@
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
   </head>
 
-  <body class="bg-[#121212]">
+  <body class="bg-my-black">
     <div id="app" class="">
       <div
         class="bg-[url(/img/bgimg.jpg)] flex items-center justify-center flex-wrap bg-center bg-opacity-80 h-[90vh] rounded-[0%0%75%75%/0%0%40%40%] w-screen relative"
       >
-        <div class="max-w-[30rem] mx-2 absolute">
+        <div class="max-w-[40rem] mx-2 absolute">
           <div class="flex flex-col items-center mb-8">
             <h1 class="text-white font-extrabold text-3xl">ANIdown</h1>
             <h1 class="text-white font-extrabold">
@@ -52,30 +52,30 @@
             </div>
             <button
               id="search"
-              class="block font-medium font-sans text-white text rounded-md p-1 px-4 my-4 mx-auto bg-amber-500"
+              class="block selection:cursor-pointer font-medium font-sans text-white text rounded-md p-1 px-4 my-4 mx-auto bg-amber-500"
             >
               Search
             </button>
           </form>
           <p class="text-white font-mono">
             To get accurate results please follow the
-            <a
-              class="bg-amber-500 justify-center mx-auto"
-              href="instruction.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              >instruction</a
+            <button
+              class="bg-amber-700 font-extrabold justify-center mx-auto selection:cursor-pointer rounded-sm px-1"
+              id="modal-open"
             >
+              instruction
+            </button>
           </p>
         </div>
       </div>
-      <section id="wait" class="m-4 hidden">
+      <section id="wait" class="mx-4 mt-4 mb-8 hidden flex justify-center">
+        <div class="h-8 w-8 animate-spin bg-red-600">(),,()</div>
         <p class="text-white text-center">
           Hang on..... we are preparing your link
         </p>
       </section>
       <section id="no-res" class="m-4 hidden mb-8">
-        <p class="text-red-500 text-center">
+        <p class="text-red-500 text-center m-4">
           Please check the instruction and try again by refreshing the page
         </p>
       </section>
@@ -89,6 +89,49 @@
 
       <div class="bg-amber-600 h-8 w-full fixed bottom-0"></div>
     </div>
+
+    <!-- modal dialog -->
+    <dialog
+      class="modal p-4 px-6 text-white font-mono rounded-md bg-my-black backdrop:bg-my-black backdrop:opacity-75 shadow-lg"
+    >
+      <h1 class="text-center font-extrabold">Welcome to AniDown</h1>
+      <p>
+        If you want to download anime from Anidown, follow these instructions:
+        <br />
+      </p>
+      <ul class="list-disc">
+        <li>
+          Search for the anime you want to download on
+          <a class="bg-orange-600" target="_blank" href="http://anilist.co">
+            Anilist</a
+          >
+          website.
+        </li>
+
+        <li>
+          Choose the anime you are looking for and copy the title you find
+          there.
+        </li>
+        Make sure to use the exact title you copied from Anilist to avoid any
+        mismatch between Japanese and English names. Paste the title into
+        Anidown's search engine.
+        <br />
+      </ul>
+
+      <p>
+        It is important to note that searching without knowing the proper name
+        may give incorrect download links because of the mismatch between
+        Japanese and English names. Therefore, it is recommended to refer to
+        Anilist website to get the accurate title before searching on Anidown.
+      </p>
+      <p>Happy downloading! 🔥</p>
+
+      <button
+        class="modal-close rounded bg-orange-600 px-2 selection:cursor-pointer"
+      >
+        Close
+      </button>
+    </dialog>
 
     <script type="module" src="/main.js"></script>
     <script type="module" src="app.js"></script>
