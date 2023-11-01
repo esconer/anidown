@@ -3,13 +3,6 @@ const puppeteer = require("puppeteer");
 require("dotenv").config();
 
 async function anidown(aniName, epNo, lang, type = "TV") {
-  // Launch the browser
-  const browser = await puppeteer.launch({
-    headless: false,
-    defaultViewport: false,
-
-    userDataDir: "./tmp",
-  });
   try {
     let downLink;
 
@@ -52,7 +45,7 @@ async function anidown(aniName, epNo, lang, type = "TV") {
     // await page.goto(basicSearch);
     await page.goto(advSearch);
     //image selector
-    await page.waitForNetworkIdle(".cards-grid");
+    await page.waitForSelector(".cards-grid");
 
     const searchResult = await page.$$eval(".cards-grid a", (anime) => {
       return anime.map((el) => el.href);
@@ -115,12 +108,12 @@ async function anidown(aniName, epNo, lang, type = "TV") {
     console.log(`${downLink}   from down.js`);
     // link = downLink;
 
+    await browser.close();
     return downLink;
   } catch (e) {
     // downLink = null;
     console.log("please read the instruction and try again", e);
   }
-  await browser.close();
 }
 
 module.exports = anidown;
