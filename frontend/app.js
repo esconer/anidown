@@ -25,6 +25,9 @@ searchBtn.addEventListener("click", function (event) {
     ep_no: Number(epNo),
     lang: lang,
   };
+  // if (aniDetails.ani_name == false && aniDetails.ep_no == false) {
+  //   errorSection.innerHTML = "please fill the form";
+  // } else {
   waitSection.classList.add("hidden");
   errorSection.classList.add("hidden");
   waitSection.classList.remove("hidden");
@@ -58,4 +61,5 @@ searchBtn.addEventListener("click", function (event) {
       waitSection.classList.add("hidden");
       errorSection.classList.remove("hidden");
     });
+  // }
 });

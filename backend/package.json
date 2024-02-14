@@ -9,7 +9,7 @@
     "build": ""
   },
   "engines": {
-    "node": ">=18 <19",
+    "node": ">=19 <21",
     "npm": ">=9.6.1"
   },
   "keywords": [],
