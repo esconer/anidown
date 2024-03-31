@@ -1,6 +1,7 @@
 const puppeteer = require("puppeteer");
 
 require("dotenv").config();
+const path = require("path");
 
 async function anidown(aniName, epNo, lang, type = "TV") {
   try {
@@ -19,13 +20,22 @@ async function anidown(aniName, epNo, lang, type = "TV") {
       type.toUpperCase();
     }
 
+    //extension load ublock origin
+    const extensionPath = path.join(
+      __dirname,
+      "extension/uBlock0_1.57.0.chromium/uBlock0.chromium"
+    );
+
     // Launch the browser
     const browser = await puppeteer.launch({
+      headless: false,
       args: [
         "--disable-setuid-sandbox",
         "--no-sandbox",
         "--single-process",
         "--no-zygote",
+        `--disable-extensions-except=${extensionPath}`,
+        `--load-extension=${extensionPath}`,
       ],
       executablePath:
         process.env.NODE_ENV === "production"
@@ -105,10 +115,25 @@ async function anidown(aniName, epNo, lang, type = "TV") {
       );
       await page.goto(downLink);
     }
+    // #content-download > div:nth-child(1) > div:nth-child(5) > a
+    // extracting download links of different quality
+    let downQualityLinks = {
+      "360p": "",
+      "480p": "",
+      "720p": "",
+      "1080p": "",
+    };
+
+    // await page.waitForSelector("#content-download > .download > a");
+    let qualityLinks = await page.evaluate(
+      () => document.querySelectorAll("#content-download > .download > a").href
+    );
+    console.log(qualityLinks);
+
     console.log(`${downLink}   from down.js`);
     // link = downLink;
 
-    await browser.close();
+    // await browser.close();
     return downLink;
   } catch (e) {
     // downLink = null;
